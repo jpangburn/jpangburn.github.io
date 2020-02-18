@@ -4,7 +4,9 @@ date:   2020-02-17 10:05:52 -0800
 categories: personalfinance
 ---
 
-This document contains my amateur opinions for building wealth and retiring as early as possible.  Note that these are the opinions of an engineer / computer scientist, not a professional CPA, investment advisor, or attorney.  [See full disclaimer before making any financial decisions based on this content.](#disclaimer)
+This document contains my amateur opinions for building wealth and retiring as early as possible.  Note that these are the opinions of an engineer / computer scientist, not a professional CPA, investment advisor, or attorney.
+
+[See full disclaimer before making any financial decisions based on this content.](#disclaimer)
 
 Here’s a hierarchy that I believe is most important to understand for growing your personal wealth.  The rest of this document describes these concepts starting at the foundation.  I suggest you do not skip sections as each section forms the foundation for the next.  You would not want a house with garbage for a foundation, do not build your financial future on a shaky foundation either- read this from the start and be sure you thoroughly understand each section before proceeding to the next.
 
