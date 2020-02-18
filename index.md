@@ -5,4 +5,4 @@
 layout: home
 ---
 
-This is the content of the index.md page
+Enjoy my unsolicited advice in the following posts, I hope it helps!

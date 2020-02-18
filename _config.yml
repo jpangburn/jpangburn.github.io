@@ -38,3 +38,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# minima config
+show_excerpts: true
