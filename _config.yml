@@ -20,6 +20,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jpangburn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jpangburn
+# show excerpts on post listing
+show_excerpts: true
+# enable google_analytics
+google_analytics: UA-158692727-1
 
 # Build settings
 markdown: kramdown
@@ -39,5 +43,3 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# minima config
-show_excerpts: true
