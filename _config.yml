@@ -24,6 +24,9 @@ github_username:  jpangburn
 show_excerpts: true
 # enable google_analytics
 google_analytics: UA-158692727-1
+# configure disqus comments
+disqus:
+  shortname: unsolicited-advice
 
 # Build settings
 markdown: kramdown
