@@ -24,7 +24,11 @@ github_username:  jpangburn
 show_excerpts: true
 # enable google_analytics
 google_analytics: UA-158692727-1
-
+# customize header links
+header_pages:
+  - about.md
+  - privacy.md
+  
 # Build settings
 markdown: kramdown
 theme: minima
