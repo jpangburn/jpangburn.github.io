@@ -1,0 +1,7 @@
+{%- if page.comments != false and jekyll.environment == "production" -%}
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId={{ site.facebook_comments.app_id }}"></script>
+
+<div class="fb-comments" data-href="{{ page.url | absolute_url }}" data-width="{{ site.facebook_comments.width }}" data-numposts="{{ site.facebook_comments.numposts }}"></div>
+{%- endif -%}

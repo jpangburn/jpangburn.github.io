@@ -28,7 +28,12 @@ google_analytics: UA-158692727-1
 header_pages:
   - about.md
   - privacy.md
-  
+# use my custom facebook code
+facebook_comments:
+  app_id: 818791938587632
+  width: 100%
+  #numposts: 10
+
 # Build settings
 markdown: kramdown
 theme: minima
