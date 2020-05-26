@@ -16,7 +16,7 @@
 title: Unsolicited Advice
 email: jesse.pangburn@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I'm an ex software architect, who retired at 41.  This site has posts that basically provide unsolicited advice and opinions on things that I'm familiar with.  See the About page for more detail.
+  Software Architect is probably the best label for my professional life.  This site has posts that basically provide unsolicited advice and opinions on things that I'm familiar with.  See the About page for more detail.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jpangburn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jpangburn
