@@ -1,5 +1,5 @@
 # jpangburn.github.io
-Personal website
+[Personal website](https://jpangburn.github.io/)
 
 This repository uses Jekyll with Github Pages to create a personal website using the "minima" gem.  This gives a simplified setup for a blog style website.  To make a website like this, I recommend you start at the Jekyll website [doc page](https://jekyllrb.com/docs/) to learn about Jekyll, and [GitHub's Working with GitHub Pages](https://help.github.com/en/github/working-with-github-pages) to get the idea of what GitHub pages can do for you.  Then [GitHub's Setting up a GitHub Pages site with Jekyll](https://help.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll).
 
