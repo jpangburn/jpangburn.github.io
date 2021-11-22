@@ -8,14 +8,17 @@ note: This file is unlinked on the web site as it's just for me and my dad to fi
 # Notes about the solar tracker
 
 ## Physical Setup
-East Angle: 126 degrees
-West Angle: 246 degrees
-Full west position: 2300 ticks  
+The following are stored in `install_specific_settings.h` so each tracker can customize them:
+- Full west position: 2300 ticks  
 This gives about 30 ticks of padding to east and west before actuator reaches limit switches
+- Latitude/Longitude: tracker's location
+- Minimum actuator movement: 10 ticks
+- Polynomial positioning coefficients: X3 X2 X1 X0 for multiplying times polynomial terms for the desired azimuth
+See the [Polynomial Terms Calculation](#polynomial-terms-calculation) section.
 
 ## User Interface
 The UI consists of a display screen that turns on when the device is reset or when the user pushes the Status button, and 3 buttons to control the tracker.
-![UI](/assets/img/TrackerInterface.jpg)
+![UI](/assets/img/solar_tracker/TrackerInterface.jpg)
 
 ### The Display Screen
 The screen times out after a short while to save power.  If it's off, just push the Status button to turn it on.  It shows the following items (marked in the graphic):
@@ -77,12 +80,20 @@ Uncomment this section.  Modify the TZ_OFFSET based on current time zone (for us
 A motor sense error means when the tracker was moving, it didn't see any ticks from the position sensor for 3/4 of a second.  This is a clear error condition telling the controller that a sensor wire is broken/pulled/etc. and it can no longer determine what the actuator position is.  This is probably relatively easy to fix as it's likely a broken/disconnected wire, but it can also be a physical obstruction or a problem with the linear actuator.
 
 To resolve this if it doesn't appear to be a physical problem, reset the controller and then use the east/west buttons to test if the motor moves.  If it's not moving, check if the buttons are sending power to the motor.  If it is moving fine by those buttons, disconnect power to the controller. Check the two green wires coming out of the controller- these are the sensor wires.
-![UI](/assets/img/SensorWires.jpg)
+![UI](/assets/img/solar_tracker/SensorWires.jpg)
 Try the following steps in order to determine the problem:
 1. Make sure they're still plugged in to the breadboard.  Refer to the photo above.  Make sure the capacitor is still securely plugged in and didn't get bumped too much by someone pushing buttons.
 2. Make sure the brown wire going into the Arduino from above the capacitor hasn't gotten unplugged. If it has, it's pin 13 on the Arduino (between the gray and white wires in the picture).  The bare ground wire seems unlikely to have been removed on accident.
 3. Unscrew the 4 screws on the actuator's access panel.  Using a tester, test for continuity on each green wire from where it connects on the breadboard to the wires coming from the sensor in the actuator.
 4. If none of that solved it, here's some info to help you figure it out.  The sensor in the actuator is a reed switch.  As the motor moves, the wires from the sensor go from a closed to open circuit (just like a button).  About 3/4 of the time the circuit is closed and you should have continuity from one green wire on the breadboard to the other one.  The other 1/4 of the time, the circuit is open and there should not be continuity between the green wires- but there should be continuity from each green wire to its corresponding wire on the reed switch.  If this all seems correct, the remaining possibility is damage to the Arduino.  To determine if that's the case, you'll need to take this thing to your desk and write a test program to show when the green wires are connected and when they're not.  If this program fails, then that port is dead.  Try another port.  Or another Arduino.
 
+## Polynomial Terms Calculation
+A third degree polynomial can quite accurately reproduce the motion of a plane rotated about an axis by a linear actuator (i.e. the azimuth that the tracker will face given a certain number of ticks of movement by the linear actuator).  This is calculated by manually moving the tracker through small increments of its range, and copying down the position reading from the controller and the azimuth that the tracker is facing at that position.  This ends up with a table of azimuth to position.  Feed this into a polynomial regression calculator like [this one](https://stats.blue/Stats_Suite/polynomial_regression_calculator.html).  It should look something like this:
+
+![Polynomial Regression Calculation](/assets/img/solar_tracker/PolynomialRegression.png)
+
+The Explanatory (x) variable is the azimuth you want to achieve (because the controller knows what azimuth the sun is at), and the Response (y) is the linear actuator's position that points the tracker at that azimuth.  In my case, the result isn't that far off from a straight line, but if you try a simple linear regression then the resulting accuracy can be off by over 10 degrees at times.  So it seems worth the small amount of time required to collect those points (it was windy when I collected this so you can see some of them fall a bit off the line) to get the resulting accuracy.
+
+To use this, just take the X3 to X0 coefficients and plug them into the `install_specific_settings.h` file, recompile, and upload to the controller.  Re-zero the controller and watch it track to within a few degrees of the sun's current position with no visual reference to the sun.
 ## Source Code
 Source is at [https://github.com/jpangburn/Solar_Tracker_Positional](https://github.com/jpangburn/Solar_Tracker_Positional)
