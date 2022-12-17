@@ -1,0 +1,3669 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css" nonce="u0cKI6kZ">
+        html {
+            touch-action: manipulation
+        }
+
+        body {
+            background: #fff;
+            color: #1c1e21;
+            direction: ltr;
+            line-height: 1.34;
+            margin: 0;
+            padding: 0;
+            unicode-bidi: embed
+        }
+
+        body,
+        button,
+        input,
+        label,
+        select,
+        td,
+        textarea {
+            font-family: 'Segoe UI Historic', 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-size: 12px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #1c1e21;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
+            padding: 0
+        }
+
+        h1 {
+            font-size: 14px
+        }
+
+        h4,
+        h5,
+        h6 {
+            font-size: 12px
+        }
+
+        p {
+            margin: 1em 0
+        }
+
+        b,
+        strong {
+            font-weight: 600
+        }
+
+        a {
+            color: #385898;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        button {
+            margin: 0
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        img {
+            border: 0
+        }
+
+        td,
+        td.label {
+            text-align: left
+        }
+
+        dd {
+            color: #000
+        }
+
+        dt {
+            color: #606770
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0
+        }
+
+        abbr {
+            border-bottom: none;
+            text-decoration: none
+        }
+
+        hr {
+            background: #dadde1;
+            border-width: 0;
+            color: #dadde1;
+            height: 1px
+        }
+
+        form {
+            margin: 0;
+            padding: 0
+        }
+
+        label {
+            color: #606770;
+            cursor: default;
+            font-weight: 600;
+            vertical-align: middle
+        }
+
+        label input {
+            font-weight: normal
+        }
+
+        textarea,
+        .inputtext,
+        .inputpassword {
+            border: 1px solid #ccd0d5;
+            border-radius: 0;
+            margin: 0;
+            padding: 3px
+        }
+
+        textarea {
+            max-width: 100%
+        }
+
+        select {
+            border: 1px solid #ccd0d5;
+            padding: 2px
+        }
+
+        input,
+        select,
+        textarea {
+            background-color: #fff;
+            color: #1c1e21
+        }
+
+        .inputtext,
+        .inputpassword {
+            padding-bottom: 4px
+        }
+
+        .inputtext:invalid,
+        .inputpassword:invalid {
+            box-shadow: none
+        }
+
+        .inputradio {
+            margin: 0 5px 0 0;
+            padding: 0;
+            vertical-align: middle
+        }
+
+        .inputcheckbox {
+            border: 0;
+            vertical-align: middle
+        }
+
+        .inputbutton,
+        .inputsubmit {
+            background-color: #4267b2;
+            border-color: #DADDE1 #0e1f5b #0e1f5b #d9dfea;
+            border-style: solid;
+            border-width: 1px;
+            color: #fff;
+            padding: 2px 15px 3px 15px;
+            text-align: center
+        }
+
+        .inputaux {
+            background: #ebedf0;
+            border-color: #EBEDF0 #666 #666 #e7e7e7;
+            color: #000
+        }
+
+        .inputsearch {
+            background: #FFFFFF url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/unHwF9CkMyM.png) no-repeat left 4px;
+            padding-left: 17px
+        }
+
+        .clearfix:after {
+            clear: both;
+            content: '.';
+            display: block;
+            font-size: 0;
+            height: 0;
+            line-height: 0;
+            visibility: hidden
+        }
+
+        .clearfix {
+            zoom: 1
+        }
+
+        .datawrap {
+            word-wrap: break-word
+        }
+
+        .word_break {
+            display: inline-block
+        }
+
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .aero {
+            opacity: .5
+        }
+
+        .column {
+            float: left
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #facebook .hidden_elem {
+            display: none !important
+        }
+
+        #facebook .invisible_elem {
+            visibility: hidden
+        }
+
+        #facebook .accessible_elem {
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px
+        }
+
+        #facebook .accessible_elem_offset {
+            margin: -1px
+        }
+
+        .direction_ltr {
+            direction: ltr
+        }
+
+        .direction_rtl {
+            direction: rtl
+        }
+
+        .text_align_ltr {
+            text-align: left
+        }
+
+        .text_align_rtl {
+            text-align: right
+        }
+
+        body {
+            overflow-y: scroll
+        }
+
+        .mini_iframe {
+            overflow-y: visible
+        }
+
+        .auto_resize_iframe {
+            height: auto;
+            overflow: hidden
+        }
+
+        .pipe {
+            color: gray;
+            padding: 0 3px
+        }
+
+        #content {
+            margin: 0;
+            outline: none;
+            padding: 0;
+            width: auto
+        }
+
+        .profile #content,
+        .home #content,
+        .search #content {
+            min-height: 600px
+        }
+
+        .UIStandardFrame_Container {
+            margin: 0 auto;
+            padding-top: 20px;
+            width: 960px
+        }
+
+        .UIStandardFrame_Content {
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 760px
+        }
+
+        .UIStandardFrame_SidebarAds {
+            float: right;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            word-wrap: break-word
+        }
+
+        .UIFullPage_Container {
+            margin: 0 auto;
+            padding: 20px 12px 0;
+            width: 940px
+        }
+
+        .empty_message {
+            background: #f5f6f7;
+            font-size: 13px;
+            line-height: 17px;
+            padding: 20px 20px 50px;
+            text-align: center
+        }
+
+        .see_all {
+            text-align: right
+        }
+
+        .standard_status_element {
+            visibility: hidden
+        }
+
+        .standard_status_element.async_saving {
+            visibility: visible
+        }
+
+        img.tracking_pixel {
+            height: 1px;
+            position: absolute;
+            visibility: hidden;
+            width: 1px
+        }
+
+        #globalContainer {
+            margin: 0 auto;
+            position: relative;
+            zoom: 1
+        }
+
+        .fbx #globalContainer {
+            width: 981px
+        }
+
+        .sidebarMode #globalContainer {
+            padding-right: 205px
+        }
+
+        .fbx #tab_canvas>div {
+            padding-top: 0
+        }
+
+        .fb_content {
+            min-height: 640px;
+            padding-bottom: 20px
+        }
+
+        .fbx .fb_content {
+            padding-bottom: 0
+        }
+
+        .skipto {
+            display: none
+        }
+
+        .home .skipto {
+            display: block
+        }
+
+        ._li._li._li {
+            overflow: initial
+        }
+
+        ._aj3e,
+        ._aj3e video {
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 2px;
+            z-index: -1
+        }
+
+        ._910i._li._li._li {
+            overflow: hidden
+        }
+
+        ._9053 ._li._li._li {
+            overflow-x: hidden
+        }
+
+        ._72b0 {
+            position: relative;
+            z-index: 0
+        }
+
+        .registration ._li._9bpz {
+            background-color: #f0f2f5
+        }
+
+        ._li ._9bp- {
+            padding-top: 5px;
+            text-align: center
+        }
+
+        ._li ._9bp- .fb_logo {
+            height: 100px
+        }
+
+        ._li ._a66f {
+            padding-top: 5px;
+            text-align: center
+        }
+
+        ._li ._a66f .fb_logo {
+            height: 80px;
+            padding-top: 72px
+        }
+
+        ._5vb_ #pageFooter {
+            display: none
+        }
+
+        html body._5vb_ #globalContainer {
+            width: 976px
+        }
+
+        ._5vb_.hasLeftCol #headerArea {
+            margin: 0;
+            padding-top: 0;
+            width: 786px
+        }
+
+        ._5vb_,
+        ._5vb_ #contentCol {
+            background-color: #e9ebee;
+            color: #1d2129
+        }
+
+        html ._5vb_.hasLeftCol #contentCol {
+            border-left: 0;
+            margin-left: 172px;
+            padding-left: 11px;
+            padding-top: 11px
+        }
+
+        ._5vb_.hasLeftCol #topNav {
+            border-left: 0;
+            margin-left: 172px;
+            padding: 11px 7px 0 11px
+        }
+
+        ._5vb_.hasLeftCol #topNav~#contentCol {
+            padding-top: 0
+        }
+
+        ._5vb_.hasLeftCol #leftCol {
+            padding-left: 8px;
+            padding-top: 12px;
+            width: 164px
+        }
+
+        ._5vb_.hasLeftCol #mainContainer {
+            border-right: 0;
+            margin-left: 0
+        }
+
+        ._5vb_.hasLeftCol #pageFooter {
+            background: none
+        }
+
+        html ._5vb_._5vb_.hasLeftCol div#contentArea {
+            padding-left: 0;
+            padding-right: 10px;
+            width: 786px
+        }
+
+        html ._5vb_._5vb_.hasLeftCol .hasRightCol div#contentArea {
+            width: 496px
+        }
+
+        ._5vb_.hasLeftCol ._5r-_ div#rightCol {
+            padding: 0 7px 0 0;
+            width: 280px
+        }
+
+        ._2yq #globalContainer {
+            width: 1012px !important
+        }
+
+        ._2yq #headerArea {
+            float: none !important;
+            padding: 0 0 12px 0 !important;
+            width: auto !important
+        }
+
+        ._2yq #contentArea {
+            margin-right: 0;
+            padding: 0 !important
+        }
+
+        ._2yq #leftCol,
+        ._2yq #contentCol {
+            padding: 0 !important
+        }
+
+        ._2yq #rightCol {
+            float: left;
+            margin-top: 0;
+            padding: 0 !important
+        }
+
+        .tinyViewport ._2yq #pagelet_navigation.fixed_elem {
+            position: static !important
+        }
+
+        ._2yq .loggedout_menubar_container {
+            min-width: 1014px
+        }
+
+        ._a704 {
+            font-size: 14px;
+            margin: auto
+        }
+
+        ._a7o5 {
+            font-size: 15px;
+            margin: auto
+        }
+
+        ._a705 {
+            margin: 0 auto;
+            width: 800px
+        }
+
+        ._a706 {
+            float: left;
+            margin-bottom: 15px;
+            position: relative;
+            width: inherit;
+            word-break: break-word;
+            z-index: 0
+        }
+
+        ._a707 {
+            clear: both;
+            color: #7f7f7f;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: center
+        }
+
+        ._a708 {
+            position: relative;
+            z-index: 100
+        }
+
+        ._a709 {
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: row;
+            padding: 15px
+        }
+
+        ._a70a {
+            background: #fff;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 15px;
+            padding-left: 2px;
+            padding-right: 15px;
+            padding-top: 15px
+        }
+
+        ._a70b {
+            background: #fff;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 15px;
+            padding-left: 2px;
+            padding-right: 15px;
+            padding-top: 15px
+        }
+
+        ._a70c {
+            border-radius: 50%;
+            height: 16px;
+            padding: 4px;
+            width: 16px
+        }
+
+        ._a70d {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 8px;
+            width: 100%
+        }
+
+        ._a70e {
+            color: #1d2129;
+            font-weight: bold;
+            line-height: 18px;
+            margin-bottom: 3px
+        }
+
+        ._a70f {
+            color: #90949c;
+            line-height: 16px
+        }
+
+        ._a70g {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 600px
+        }
+
+        ._a70h {
+            margin-top: 4px
+        }
+
+        ._a7cj {
+            background: white;
+            box-shadow: 0 1px 7px #ccc;
+            position: fixed;
+            width: 100%;
+            z-index: 99
+        }
+
+        ._acpq {
+            background: white;
+            border-radius: 8px;
+            margin-top: 15px;
+            padding: 10px
+        }
+
+        ._acpr {
+            font-weight: bold;
+            margin-bottom: 3px
+        }
+
+        ._a7co {
+            margin-left: 16px
+        }
+
+        ._a7cv {
+            align-items: center;
+            display: flex;
+            justify-content: end
+        }
+
+        ._a7cw {
+            align-items: center;
+            display: flex;
+            margin-right: 16px
+        }
+
+        ._a7cx {
+            border-radius: 50%;
+            margin-right: 8px
+        }
+
+        ._a7cy {
+            font-size: 15px;
+            font-weight: 600
+        }
+
+        ._a7cz {
+            margin-left: 8px;
+            margin-right: 16px
+        }
+
+        ._a7c- {
+            color: #000;
+            text-decoration: none
+        }
+
+        ._a7c_ {
+            height: 70px;
+            width: 100%
+        }
+
+        ._5aj7 {
+            display: flex
+        }
+
+        ._5aj7 ._4bl7 {
+            float: none
+        }
+
+        ._5aj7 ._4bl9 {
+            flex: 1 0 0px
+        }
+
+        ._ikh ._4bl7 {
+            float: left;
+            min-height: 1px
+        }
+
+        ._4bl7,
+        ._4bl9 {
+            word-wrap: break-word
+        }
+
+        ._4bl9 {
+            overflow: hidden
+        }
+
+        ._4jnw {
+            margin: 0
+        }
+
+        ._3-8h {
+            margin: 4px
+        }
+
+        ._3-8i {
+            margin: 8px
+        }
+
+        ._3-8j {
+            margin: 12px
+        }
+
+        ._3-8k {
+            margin: 16px
+        }
+
+        ._3-8l {
+            margin: 20px
+        }
+
+        ._2-5b {
+            margin: 24px
+        }
+
+        ._1kbd {
+            margin-bottom: 0;
+            margin-top: 0
+        }
+
+        ._3-8m {
+            margin-bottom: 4px;
+            margin-top: 4px
+        }
+
+        ._3-8n {
+            margin-bottom: 8px;
+            margin-top: 8px
+        }
+
+        ._3-8o {
+            margin-bottom: 12px;
+            margin-top: 12px
+        }
+
+        ._3-8p {
+            margin-bottom: 16px;
+            margin-top: 16px
+        }
+
+        ._3-8q {
+            margin-bottom: 20px;
+            margin-top: 20px
+        }
+
+        ._2-ox {
+            margin-bottom: 24px;
+            margin-top: 24px
+        }
+
+        ._1a4i {
+            margin-left: 0;
+            margin-right: 0
+        }
+
+        ._3-8r {
+            margin-left: 4px;
+            margin-right: 4px
+        }
+
+        ._3-8s {
+            margin-left: 8px;
+            margin-right: 8px
+        }
+
+        ._3-8t {
+            margin-left: 12px;
+            margin-right: 12px
+        }
+
+        ._3-8u {
+            margin-left: 16px;
+            margin-right: 16px
+        }
+
+        ._3-8v {
+            margin-left: 20px;
+            margin-right: 20px
+        }
+
+        ._6bu9 {
+            margin-left: 24px;
+            margin-right: 24px
+        }
+
+        ._5soe {
+            margin-top: 0
+        }
+
+        ._3-8w {
+            margin-top: 4px
+        }
+
+        ._3-8x {
+            margin-top: 8px
+        }
+
+        ._3-8y {
+            margin-top: 12px
+        }
+
+        ._3-8z {
+            margin-top: 16px
+        }
+
+        ._3-8- {
+            margin-top: 20px
+        }
+
+        ._4aws {
+            margin-top: 24px
+        }
+
+        ._2-jz {
+            margin-right: 0
+        }
+
+        ._3-8_ {
+            margin-right: 4px
+        }
+
+        ._3-90 {
+            margin-right: 8px
+        }
+
+        ._3-91 {
+            margin-right: 12px
+        }
+
+        ._3-92 {
+            margin-right: 16px
+        }
+
+        ._3-93 {
+            margin-right: 20px
+        }
+
+        ._y8t {
+            margin-right: 24px
+        }
+
+        ._5emk {
+            margin-bottom: 0
+        }
+
+        ._3-94 {
+            margin-bottom: 4px
+        }
+
+        ._3-95 {
+            margin-bottom: 8px
+        }
+
+        ._3-96 {
+            margin-bottom: 12px
+        }
+
+        ._3-97 {
+            margin-bottom: 16px
+        }
+
+        ._3-98 {
+            margin-bottom: 20px
+        }
+
+        ._20nr {
+            margin-bottom: 24px
+        }
+
+        ._av_ {
+            margin-left: 0
+        }
+
+        ._3-99 {
+            margin-left: 4px
+        }
+
+        ._3-9a {
+            margin-left: 8px
+        }
+
+        ._3-9b {
+            margin-left: 12px
+        }
+
+        ._3-9c {
+            margin-left: 16px
+        }
+
+        ._3-9d {
+            margin-left: 20px
+        }
+
+        ._4m0t {
+            margin-left: 24px
+        }
+
+        ._a82f {
+            margin-left: 28px
+        }
+
+        ._8tm {
+            padding: 0
+        }
+
+        ._2phz {
+            padding: 4px
+        }
+
+        ._2ph- {
+            padding: 8px
+        }
+
+        ._2ph_ {
+            padding: 12px
+        }
+
+        ._2pi0 {
+            padding: 16px
+        }
+
+        ._2pi1 {
+            padding: 20px
+        }
+
+        ._40c7 {
+            padding: 24px
+        }
+
+        ._2o1j {
+            padding: 36px
+        }
+
+        ._6buq {
+            padding-bottom: 0;
+            padding-top: 0
+        }
+
+        ._2pi2 {
+            padding-bottom: 4px;
+            padding-top: 4px
+        }
+
+        ._2pi3 {
+            padding-bottom: 8px;
+            padding-top: 8px
+        }
+
+        ._2pi4 {
+            padding-bottom: 12px;
+            padding-top: 12px
+        }
+
+        ._2pi5 {
+            padding-bottom: 16px;
+            padding-top: 16px
+        }
+
+        ._2pi6 {
+            padding-bottom: 20px;
+            padding-top: 20px
+        }
+
+        ._2o1k {
+            padding-bottom: 24px;
+            padding-top: 24px
+        }
+
+        ._2o1l {
+            padding-bottom: 36px;
+            padding-top: 36px
+        }
+
+        ._6bua {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        ._2pi7 {
+            padding-left: 4px;
+            padding-right: 4px
+        }
+
+        ._2pi8 {
+            padding-left: 8px;
+            padding-right: 8px
+        }
+
+        ._2pi9 {
+            padding-left: 12px;
+            padding-right: 12px
+        }
+
+        ._2pia {
+            padding-left: 16px;
+            padding-right: 16px
+        }
+
+        ._2pib {
+            padding-left: 20px;
+            padding-right: 20px
+        }
+
+        ._2o1m {
+            padding-left: 24px;
+            padding-right: 24px
+        }
+
+        ._2o1n {
+            padding-left: 36px;
+            padding-right: 36px
+        }
+
+        ._iky {
+            padding-top: 0
+        }
+
+        ._2pic {
+            padding-top: 4px
+        }
+
+        ._2pid {
+            padding-top: 8px
+        }
+
+        ._2pie {
+            padding-top: 12px
+        }
+
+        ._2pif {
+            padding-top: 16px
+        }
+
+        ._2pig {
+            padding-top: 20px
+        }
+
+        ._2owm {
+            padding-top: 24px
+        }
+
+        ._div {
+            padding-right: 0
+        }
+
+        ._2pih {
+            padding-right: 4px
+        }
+
+        ._2pii {
+            padding-right: 8px
+        }
+
+        ._2pij {
+            padding-right: 12px
+        }
+
+        ._2pik {
+            padding-right: 16px
+        }
+
+        ._2pil {
+            padding-right: 20px
+        }
+
+        ._31wk {
+            padding-right: 24px
+        }
+
+        ._2phb {
+            padding-right: 32px
+        }
+
+        ._au- {
+            padding-bottom: 0
+        }
+
+        ._2pim {
+            padding-bottom: 4px
+        }
+
+        ._2pin {
+            padding-bottom: 8px
+        }
+
+        ._2pio {
+            padding-bottom: 12px
+        }
+
+        ._2pip {
+            padding-bottom: 16px
+        }
+
+        ._2piq {
+            padding-bottom: 20px
+        }
+
+        ._2o1p {
+            padding-bottom: 24px
+        }
+
+        ._4gao {
+            padding-bottom: 32px
+        }
+
+        ._1cvx {
+            padding-left: 0
+        }
+
+        ._2pir {
+            padding-left: 4px
+        }
+
+        ._2pis {
+            padding-left: 8px
+        }
+
+        ._2pit {
+            padding-left: 12px
+        }
+
+        ._2piu {
+            padding-left: 16px
+        }
+
+        ._2piv {
+            padding-left: 20px
+        }
+
+        ._2o1q {
+            padding-left: 24px
+        }
+
+        ._2o1r {
+            padding-left: 36px
+        }
+
+        ._a6-g {
+            background: white;
+            border-radius: 8px
+        }
+
+        ._a6-h {
+            color: #1d2129;
+            font-weight: bold;
+            line-height: 18px
+        }
+
+        ._a6-i {
+            border-bottom: 1px solid #dadde1
+        }
+
+        ._a6-o,
+        ._a6-o a {
+            color: #8d949e;
+            line-height: 16px
+        }
+
+        ._a72d {
+            padding-bottom: 12px;
+            padding-left: 12px;
+            padding-right: 12px
+        }
+
+        ._a6-p {
+            color: #1d2129;
+            line-height: 17px
+        }
+
+        ._a6-q {
+            color: gray
+        }
+
+        ._a6_m {
+            font-weight: bold
+        }
+
+        ._a6_n {
+            line-height: 2;
+            text-align: left
+        }
+
+        ._a6_n tbody tr th {
+            padding: 5px 5px;
+            text-align: left;
+            vertical-align: top;
+            width: 150px
+        }
+
+        ._a6_o {
+            max-width: 100%
+        }
+
+        ._a6_p {
+            font-weight: bold
+        }
+
+        ._a6_q {
+            color: #90949c;
+            line-height: 20px;
+            min-width: 50px
+        }
+
+        ._acpx {
+            color: #90949c
+        }
+
+        ._acq1 {
+            line-height: 20px;
+            padding-bottom: 8px
+        }
+
+        ._a6_r {
+            line-height: 20px
+        }
+
+        ._a6_s {
+            word-break: break-all
+        }
+
+        ._a7nf {
+            display: flex;
+            padding-left: 5px;
+            margin-bottom: 5px
+        }
+
+        ._a7ng {
+            padding-right: 5px
+        }
+
+        ._a7nh {
+            width: 20%
+        }
+    </style>
+    <title>Радослав · 2013 Giant Reign 2 </title>
+</head>
+
+<body class="_5vb_ _2yq _a7o5">
+    <div class="clearfix _ikh">
+        <div class="_4bl9">
+            <div class="_li">
+                <div class="_a705">
+                    <div class="_3-8y _3-95 _a709">
+                        <div style="background-color: #3578E5" class="_a70c"><img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4wUJExktKVPrMgAAAAJiS0dEAP+Hj8y/AAAAx0lEQVR42n3LsUpCYRiA4W8SZ6WmwmjxGqIgmtwDB5fwCoQgkKBuwLWpZm/gjG6tx83xtLg1lRQKNoRPaPwYlj3ryxuJEw8KMzOFe8fxk4rMpkwl5aonfylUY8nANoNlbvhPI/QlC7kPwEQX9MNY0opQN8JQTQeMQ3qyWFHWVLJvCubhBUztKWkqx4oM8Bpy0HFgiJF6hJYkDzegawKYyy0kt2HXm23e7USEtm3a8U3Pb58uI3Fm06OjWHPo2Z1T565cu1Bbty8r7oMp62N1aQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wNS0xMFQwMjoyNTo0NS0wNzowMC7bZsEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDUtMTBUMDI6MjU6NDUtMDc6MDBfht59AAAAAElFTkSuQmCC" />
+                        </div>
+                        <div class="_a70d">
+                            <div class="_a70e">Радослав · 2013 Giant Reign 2 </div>
+                        </div>
+                    </div>
+                    <div class="_a706" role="main" style="display: flex;flex-direction: column-reverse;">
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Радослав Джонев left the group.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 3:06:39pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Is your brother still coming tomorrow for the bike? 😂</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 3:06:25pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href=""><img
+                                                    src="assets/img/bike_scammer/10935986_1435051833452440_1175253419_n.webp"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 3:04:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Talk</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 3:02:41pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Fuck you</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:56:30pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You really think I’m stupid</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:56:25pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Oh, I just got a message from my bank. It says they reversed the first
+                                        transaction because it was an invalid email address. Thank goodness, right?!
+                                        I&#039;m going to ask them to reverse the one to you too. $5000 is a huuuuge
+                                        mistake, they&#039;ll understand.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:50:14pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I need full proof of the payment</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:49:30pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I can’t verify it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:49:18pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I don&#039;t have any other activity related to you. You want to see my
+                                        transactions with other people? That seems unnecessary.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:47:08pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>And don’t crop anything</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:46:37pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I need the full activity</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:46:23pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I don’t want this</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:46:12pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/320377593_1316011965845650_5373358463947480398_n_1316011962512317.png"><img
+                                                    src="assets/img/bike_scammer/320377593_1316011965845650_5373358463947480398_n_1316011962512317.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:44:31pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>With full details then it shows this</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:44:31pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/319505184_1275567556322345_4299158616298111197_n_1275567552989012.png"><img
+                                                    src="assets/img/bike_scammer/319505184_1275567556322345_4299158616298111197_n_1275567552989012.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:43:45pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>If I click hide details then it shows this</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:43:44pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I need the full screenshot of it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:43:36pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>When I click on show details, it expands that section that&#039;s already there
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:43:02pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Click on the 5000 payment and send me the screenshot of it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:42:21pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You don&#039;t care about my other transactions so I cropped them out and just
+                                        sent the ones related to you</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:42:02pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;m confused, that is what I sent you</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:41:31pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok send me the full screenshot of the activity of the 5000 to confirm</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:40:43pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Can you send the $4500 back?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:39:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Oh shoot I sent you $5000!!!</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:38:54pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>That&#039;s both of them, to you and the other invalid address</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:38:43pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>The full screenshot of this payment activity</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:38:22pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/319702983_1128666857789688_4205668329558537634_n_1128666854456355.png"><img
+                                                    src="assets/img/bike_scammer/319702983_1128666857789688_4205668329558537634_n_1128666854456355.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:38:21pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>That&#039;s the screenshot, you mean the other one too? ok</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:37:57pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Send me the Zelle activity</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:36:44pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Yes I need your zelle history</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:35:21pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You didn&#039;t get the screenshot? I sent it to Zelle support too. I hope they
+                                        can sort this out.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:34:59pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok send me the Zelle history</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:33:50pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/319926027_1329117211173041_5566372033847251706_n_1329117204506375.png"><img
+                                                    src="assets/img/bike_scammer/319926027_1329117211173041_5566372033847251706_n_1329117204506375.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:33:12pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>OK, I sent it again to the right email address</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:33:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Let’s go with what the Zelle says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:32:07pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;m going to wait a few minutes to see if they can refund the first one.
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:26:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>??</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:24:25pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>So this can be sorted out and done</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:23:23pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Try sending it now and get back to them with the screenshot</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:23:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>We have nothing to worry about</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:23:00pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Yes it will <br /> <br /> I’m sure of that</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:22:53pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Weird. They seem pretty certain it&#039;ll help. What do you think?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:22:34pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>They are trying to get this sorted out so you can be fully credited also</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:22:19pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;m trying to sort it out with them.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:21:24pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I just don&#039;t see why sending a second payment to you would help them
+                                        reverse a payment I sent to someone else. Even if that email is invalid, why
+                                        would sending you a payment have anything to do with that one? These guys seems
+                                        like they&#039;re confused.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:21:16pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Just try to do that now so will can get this resolved now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:19:31pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It’s an invalid email</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:19:07pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>They will reverse the first to you since the email is not valid info</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:18:53pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>There&#039;s no cancel button. Once you send it I think it&#039;s gone, right?
+                                        So whoever has that email address got it :-(</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:18:27pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>And No they need us to get this done now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:18:22pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You can cancel it because the email you put in is not valid</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:17:32pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>They want me to send it again, but I&#039;m not sure they know what
+                                        they&#039;re talking about. Why would I need to send a second transaction in
+                                        order for them to reverse the first one? These Zelle guys are clowns. I&#039;m
+                                        so sorry for all the trouble. You&#039;re just trying to buy a bike and all this
+                                        hassle has resulted for you. Maybe better to just send cash to your brother. Ask
+                                        Zelle to reverse your transactions. If they can&#039;t reverse mine, I&#039;ll
+                                        send an email to my bank and see if they can sort it out.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:16:17pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Are you there</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:14:13pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Try sending it now and get back to them with the screenshot of the payment
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:11:29pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I just emailed them regarding it also</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:11:07pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I asked them to reverse the other one first. I can&#039;t lose $500 and still
+                                        be able to pay my rent this month.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:08:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok try sending it now and get back to them with the screenshot now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:06:39pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Try sending it with the right email I sent</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:06:18pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;ll reach out to support to see if they can reverse it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:06:17pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Figured xwjb stood for something. omg. crap</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:05:55pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ohh it’s not</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:05:52pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Holy crap! I typed it in from my iPad to the computer and I thought it was
+                                        xwjbpro, like it meant something professional!</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:05:33pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>??</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 2:04:54pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It’s U not O</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:59:33pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You wrote the email incorrectly</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:59:18pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>This is the email I sent you <br /> <br /> xwjbpru&#064;hotmail.com</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:59:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/318943264_467952082159664_3421314108342580265_n_676552150774925.jpg"><img
+                                                    src="assets/img/bike_scammer/318943264_467952082159664_3421314108342580265_n_676552150774925.jpg"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:58:49pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>That’s not mine</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:58:44pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You send it to the wrong email</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:58:40pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Okay hope you’ve reply the screenshot to the confirmation email now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:50:30pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Did you get it?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:45:22pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I sent the message to the Zelle support people too. So hopefully they&#039;ll
+                                        release the money soon. I&#039;ll be home after 5 tomorrow too, so that&#039;s
+                                        fine for your brother to come.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:44:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/318956763_698526051848441_1482555275608331535_n_698526045181775.png"><img
+                                                    src="assets/img/bike_scammer/318956763_698526051848441_1482555275608331535_n_698526045181775.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:39:51pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I got Zelle to work on my computer, finally!!!!</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:39:50pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Is it sent now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:36:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Are you there</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:27:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Send me the screenshot once it’s sent and do Send it through family and friends
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:24:24pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>&#064;phyllismetts</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:24:05pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You can make the refund through Venmo and after it’s sent it’s reply back to
+                                        the confirmation email with the screenshot of it so you can be fully credited
+                                        immediately</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:20:42pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I just emailed them regarding the payment</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:20:00pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You can cancel it from your Zelle to get your money back if you don&#039;t want
+                                        to wait, I understand this isn&#039;t your problem</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:19:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>My gf needs me to run to the store for dinner right now though. I tried again
+                                        but still get that stupid A106 error. I&#039;ll be back in 45 minutes to an
+                                        hour, so sorry!!!</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:19:06pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Yeah, I was just wondering if the Zelle people would accept that. I guess
+                                        probably not. I imagine I have to send to you via Zelle for Zelle to release my
+                                        $1275, otherwise you&#039;ll get your $500 but Zelle will still be messed up.
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:18:07pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Should I send In the Venmo info for the refund now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:16:06pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>After you send it through Venmo just get back to them with the screenshot of
+                                        the Venmo so you can be fully credited</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:15:49pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>We can try that</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:14:55pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok you got Venmo?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:14:43pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I know it&#039;s not your job, so don&#039;t worry I&#039;ll figure it out.
+                                        Maybe I can send it another way if zelle is broken.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:14:25pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>That’s why I asked you to send me the screenshot of what it says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:14:12pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It&#039;s hard cause it&#039;s on my phone. Do you know anything about error
+                                        A106?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:13:48pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok try sending me the screenshot</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:10:27pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>That page is confusing, but I&#039;m trying their suggestions. Really sorry
+                                        cause you put your own money up! I&#039;ll get it sorted out sooner or later.
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:10:12pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Okay how will you let it go through</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:08:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I found this page that talks about it <a target="_blank"
+                                            href="https://www.windowsdispatch.com/fix-zelle-error-code-2900-1103-a106/">https://www.windowsdispatch.com/fix-zelle-error-code-2900-1103-a106/</a>
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:07:57pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;m on FB on my iPad. The error is on my phone. When I try to send it goes
+                                        to an error screen with code A106. I was looking up that code.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:07:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Let me see what it says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:03:23pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It says error code A106</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:03:09pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>??</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 1:01:49pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>What error send me the screenshot of what the error says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:59:04pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I&#039;ve tried but it keeps giving me an error. I&#039;m going to try from my
+                                        computer.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:58:38pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>??</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:58:02pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Is it sent now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:55:14pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>And do send me the screenshot once it’s sent also</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:52:21pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You just have to go to your banking app check for Zelle on the bank menu add
+                                        the email to make a payment<br /> <br /> And immediately it’s sent just reply
+                                        the screenshot to the confirmation email so you can be fully immediately</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:51:41pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>OK, give me a few minutes to figure it out again</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:51:24pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>xwjbpru&#064;hotmail.com</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:51:06pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Yes, sorry, it&#039;s clear now. I haven&#039;t used Zelle for a year. Have to
+                                        figure out how to send again. I assume I need your email address or phone
+                                        number?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:50:49pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>You understand what it says now ?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:49:54pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>According to the instructions given <br /> <br /> You won’t get the money
+                                        credited into your Zelle account, bank account or available balance till you
+                                        make the refund of the additional payment $500 back to me for security reasons
+                                        and safety so they can credit your account total amount once they see like the
+                                        <br /> Screenshot proof of the payment</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:48:51pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It seems like I&#039;m supposed to refund you your $500, but it says my account
+                                        is credited with 1275. I&#039;ll check my bank</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:48:34pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Should I send in the Zelle info for the refund now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:47:22pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>ok read and understand what it says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:47:14pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/319002726_1597821644005053_7408052738600875238_n_1597821637338387.png"><img
+                                                    src="assets/img/bike_scammer/319002726_1597821644005053_7408052738600875238_n_1597821637338387.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:46:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I see the final steps list</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:46:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Send me the screenshot of what you got</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:46:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>And yes</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:46:09pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ohh no problem</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:46:03pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I guess you&#039;ve done this before, you seem to understand it well. Sorry,
+                                        for the trouble.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:45:54pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Send me the screenshot of what you got let me put you through with it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:45:45pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>OK I got the email! It&#039;s kind of confusing, still reading it.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:45:13pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Hope you got the confirmation already</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:43:46pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I have successfully sent the additional.<br /> Your account has been
+                                        successfully upgraded <br /> Check for confirmation!</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:43:00pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>So I&#039;ll get another email notifying about the extra 500?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:42:33pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Oh ok I see</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:41:50pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I sent mine through business account so yours isn’t a business account so it
+                                        won’t let it be credited so the bank need me to send in the additional payment
+                                        so your account can be a business account user and you can be credited with the
+                                        amount then you can refund me back the money</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:41:33pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>My account isn&#039;t a business account and I sent money with no problem. I
+                                        wonder why it&#039;s not working for you?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:40:17pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Am sending it now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:40:02pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Okay</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:39:59pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I have a few thousand in my account so I think my account is ok. I&#039;ve sent
+                                        money from it but never received money.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:39:40pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Hope you understand what it says now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:39:07pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Which I have no problem helping you do that you promise me that you will refund
+                                        me back the money</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:38:03pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ohh ok <br /> <br /> The bank is unable to credit<br /> your account
+                                        because<br /> account isn&#039;t a business<br /> account so they need me
+                                        send<br /> in an additional payment of<br /> $500 to upgrade your account<br />
+                                        to a business account so you can be credited</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:37:57pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/319282231_3012795482346853_2242432375906737835_n_3012795472346854.png"><img
+                                                    src="assets/img/bike_scammer/319282231_3012795482346853_2242432375906737835_n_3012795472346854.png"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:36:55pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Let me see the screenshot of what it says</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:36:11pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I thought Zelle was supposed to be instant?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:35:56pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I checked my bank but I don&#039;t see the money</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:35:46pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ohh ok send me the screenshot of what you got</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:35:39pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Oh ok, I see the two emails now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:35:28pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok try refreshing and checking it once more</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:34:10pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>No, I checked and I don&#039;t see it. Can you send it again?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:33:04pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Check the email inbox or spam folder for the confirmation and see what you got
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:31:27pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I checked my email and I don&#039;t see it</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:31:13pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>I received an alert that a confirmation has been sent directly into your email
+                                        please kindly check now and get to me with the screenshot of you got so we can
+                                        move forward</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:31:00pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>
+                                        <div><a target="_blank"
+                                                href="assets/img/bike_scammer/318818389_831231591434600_3083913041390190171_n_831231588101267.jpg"><img
+                                                    src="assets/img/bike_scammer/318818389_831231591434600_3083913041390190171_n_831231588101267.jpg"
+                                                    class="_a6_o _3-96" /></a>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:28:32pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Am done with the payment</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:28:26pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:24:56pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Am sending the money now</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:24:47pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Okay</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:24:44pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Zelle? I have it but haven&#039;t used it. I guess you need my email address,
+                                        right? It&#039;s moxie457&#064;protonmail.com</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 12:24:29pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Ok my brother can do 10am tomorrow or anytime after 5pm but do you have zelle
+                                        so i can make the payment now because my brother doesn’t have money because he
+                                        didn’t plan on making a sale</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 9:35:40am</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>It&#039;s 17255 W Zoo Rd, Escondido, CA 92027</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 15, 2022 9:08:46am</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Alright send me your address so that my brother can come for the pick up while
+                                        I send you the payment upfront</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 10:57:38pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>San Pasqual, near Escondido. Is it in your area?</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 8:05:31pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Where are you located</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 1:35:54pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Jesse Pangburn</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Yes</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 1:34:52pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Is it still available</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 12:40:18pm</div>
+                            </div>
+                        </div>
+                        <div class="_3-95 _a6-g">
+                            <div class="_2ph_ _a6-h _a6-i">Радослав Джонев</div>
+                            <div class="_2ph_ _a6-p">
+                                <div>
+                                    <div></div>
+                                    <div>Радослав named the group Радослав · 2013 Giant Reign 2.</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="_3-94 _a6-o">
+                                <div class="_a72d">Dec 14, 2022 12:40:17pm</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
