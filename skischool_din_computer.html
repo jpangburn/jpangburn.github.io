@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DIN Calculator (July 2024 Look handout)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; max-width: 900px; }
+    h1 { margin: 0 0 8px; }
+    .sub { color: #555; margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; font-weight: 600; margin: 0 0 6px; }
+    select { width: 100%; padding: 10px; font-size: 16px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
+    .result { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .pill { display:inline-block; padding: 4px 10px; border-radius: 999px; background:#f2f2f2; }
+    .big { font-size: 28px; font-weight: 800; }
+    .muted { color: #666; font-size: 14px; line-height: 1.35; }
+    .warn { color: #8a4b00; background: #fff6e5; border: 1px solid #ffd08a; padding: 10px; border-radius: 10px; margin-top: 12px; }
+    .footer { margin-top: 22px; color:#666; font-size: 13px; }
+    code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>DIN Calculator</h1>
+  <p class="sub">July 2024 Look table and SRS 2020/21 Binding Adjustment cheat sheet</p>
+
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="weight">Weight (lb)</label>
+        <select id="weight"></select>
+      </div>
+
+      <div>
+        <label for="height">Height (ft/in)</label>
+        <select id="height"></select>
+      </div>
+
+      <div>
+        <label for="bsl">Boot Sole Length (mm)</label>
+        <select id="bsl"></select>
+      </div>
+
+      <div>
+        <label for="type">Skier Type (Release Preference)</label>
+        <select id="type">
+          <option value="I" selected>Type I (cautious / slow)</option>
+          <option value="II">Type II (average)</option>
+          <option value="III">Type III (fast / aggressive)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="age">Age Group</label>
+        <select id="age">
+          <option value="u9">9 and under</option>
+          <option value="10_49" selected>10–49</option>
+          <option value="50p">50 and over</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="result">
+      <div>
+        <div class="muted">Final Skier Code</div>
+        <div class="big" id="finalCode">—</div>
+        <div class="muted">From weight/height, then Type, then Age adjustment</div>
+      </div>
+      <div>
+        <div class="muted">DIN (Indicator Setting)</div>
+        <div class="big" id="din">—</div>
+        <div class="muted" id="dinNote"></div>
+      </div>
+    </div>
+
+    <div id="warning" class="warn" style="display:none;"></div>
+
+    <div class="footer">
+      Notes:
+      <ul>
+        <li>If weight-code and height-code differ, this uses the one “closest to the top of the chart” (more conservative).</li>
+        <li>Type II moves down 1, Type III down 2; if <code>&lt;48 lb</code> then max down is 1.</li>
+        <li>Age ≤9 or ≥50 moves up 1 after Type adjustment.</li>
+        <li>If the computed DIN cell is blank, it will tell you.</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+/**
+ * ===== DATA (from photo of the 2024 chart) =====
+ */
+
+// Codes in order:
+const CODES = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"];
+
+// Weight ranges -> initial code (Step 1 weight)
+const WEIGHT_OPTIONS = [
+  { label: "22–29", code: "A", lt48: true },
+  { label: "30–38", code: "B", lt48: true },
+  { label: "39–47", code: "C", lt48: true },
+  { label: "48–56", code: "D", lt48: false },
+  { label: "57–66", code: "E", lt48: false },
+  { label: "67–78", code: "F", lt48: false },
+  { label: "79–91", code: "G", lt48: false },
+  { label: "92–107", code: "H", lt48: false },
+  { label: "108–125", code: "I", lt48: false },
+  { label: "126–147", code: "J", lt48: false },
+  { label: "148–174", code: "K", lt48: false },
+  { label: "175–209", code: "L", lt48: false },
+  { label: "≥ 210", code: "M", lt48: false }
+];
+
+// Height ranges -> initial code (Step 1 height)
+const HEIGHT_OPTIONS = [
+  { label: "≤ 4'10\"", code: "H" },
+  { label: "4'11\" – 5'1\"", code: "I" },
+  { label: "5'2\" – 5'5\"", code: "J" },
+  { label: "5'6\" – 5'10\"", code: "K" },
+  { label: "5'11\" – 6'4\"", code: "L" },
+  { label: "≥ 6'5\"", code: "M" }
+];
+
+// Boot Sole Length columns (Step 4)
+const BSL_OPTIONS = [
+  { label: "≤ 230", col: 0 },
+  { label: "231–250", col: 1 },
+  { label: "251–270", col: 2 },
+  { label: "271–290", col: 3 },
+  { label: "291–310", col: 4 },
+  { label: "311–330", col: 5 },
+  { label: "331–350", col: 6 },
+  { label: "≥ 351", col: 7 }
+];
+
+// DIN table: row = code, columns = BSL col (0..7), null = blank cell
+const DIN = {
+  A: [0.75, 0.75, 0.75, null, null, null, null, null],
+  B: [1.00, 0.75, 0.75, 0.75, null, null, null, null],
+  C: [1.50, 1.25, 1.25, 1.00, null, null, null, null],
+  D: [2.00, 1.75, 1.50, 1.50, 1.25, null, null, null],
+  E: [2.50, 2.25, 2.00, 1.75, 1.50, 1.50, null, null],
+  F: [3.00, 2.75, 2.50, 2.25, 2.00, 1.75, 1.75, null],
+  G: [null, 3.50, 3.00, 2.75, 2.50, 2.25, 2.00, null],
+  H: [null, null, 3.50, 3.00, 3.00, 2.75, 2.50, null],
+  I: [null, null, 4.50, 4.00, 3.50, 3.50, 3.00, null],
+  J: [null, null, 5.50, 5.00, 4.50, 4.00, 3.50, 3.00],
+  K: [null, null, 6.50, 6.00, 5.50, 5.00, 4.50, 4.00],
+  L: [null, null, 7.50, 7.00, 6.50, 6.00, 5.50, 5.00],
+  M: [null, null, null, 8.50, 8.00, 7.00, 6.50, 6.00],
+  N: [null, null, null, 10.0, 9.50, 8.50, 8.00, 7.50],
+  O: [null, null, null, 11.5, 11.0, 10.0, 9.50, 9.00],
+  P: [null, null, null, null, null, 12.0, 11.0, 10.5]
+};
+
+/**
+ * ===== LOGIC =====
+ */
+
+function codeIndex(code) {
+  return CODES.indexOf(code);
+}
+
+// “closest to top of chart” => smaller index (A is top)
+function pickMoreConservative(codeA, codeB) {
+  return codeIndex(codeA) <= codeIndex(codeB) ? codeA : codeB;
+}
+
+function shiftCode(code, delta) {
+  const i = codeIndex(code);
+  const j = Math.max(0, Math.min(CODES.length - 1, i + delta));
+  return CODES[j];
+}
+
+// Find the DIN given code and col
+function findDIN(code, col) {
+  const row = DIN[code];
+  if (!row) return null;
+
+  if (row[col] != null) return row[col];
+  else return null;
+}
+
+function compute() {
+  const weightIdx = parseInt(document.getElementById("weight").value, 10);
+  const heightIdx = parseInt(document.getElementById("height").value, 10);
+  const bslCol = parseInt(document.getElementById("bsl").value, 10);
+  const skierType = document.getElementById("type").value;
+  const age = document.getElementById("age").value;
+
+  const weight = WEIGHT_OPTIONS[weightIdx];
+  const height = HEIGHT_OPTIONS[heightIdx];
+
+  // Step 1: base code from weight + height, choose closer to top if different
+  const baseCode = pickMoreConservative(weight.code, height.code);
+
+  // Step 2: release preference (Type)
+  let typeDelta = 0;
+  if (skierType === "II") typeDelta = +1;
+  if (skierType === "III") typeDelta = +2;
+
+  // Special rule: if skiers < 48 lb, move down one row maximum
+  if (weight.lt48 && typeDelta > 1) typeDelta = 1;
+
+  let codeAfterType = shiftCode(baseCode, typeDelta);
+
+  // Step 3: age adjustment (<=9 or >=50 => move up one row)
+  let ageDelta = 0;
+  if (age === "u9" || age === "50p") ageDelta = -1;
+
+  const finalCode = shiftCode(codeAfterType, ageDelta);
+
+  // Step 4: DIN lookup
+  const dinValue = findDIN(finalCode, bslCol);
+
+  // UI
+  document.getElementById("finalCode").textContent = finalCode;
+  document.getElementById("din").textContent = (dinValue != null) ? dinValue.toString() : "—";
+
+  const dinNote = document.getElementById("dinNote");
+  const warning = document.getElementById("warning");
+  warning.style.display = "none";
+  warning.textContent = "";
+
+  if (dinValue == null) {
+    dinNote.textContent = `No DIN value found for skier code '${finalCode}' and BSL column '${bslCol + 1}'.`;
+    warning.style.display = "block";
+    warning.textContent = "This combination lands in a blank area of the chart, ask supervisor what to do.";
+    return;
+  }
+
+  dinNote.textContent = `BSL column ${bslCol + 1} (${BSL_OPTIONS[bslCol].label}).`;
+  
+}
+
+/**
+ * ===== INIT UI =====
+ */
+function fillSelect(id, options, defaultIdx = 0) {
+  const sel = document.getElementById(id);
+  sel.innerHTML = "";
+  options.forEach((o, idx) => {
+    const opt = document.createElement("option");
+    opt.value = idx;
+    opt.textContent = o.label;
+    sel.appendChild(opt);
+  });
+  sel.value = defaultIdx;
+}
+
+fillSelect("weight", WEIGHT_OPTIONS, 6); // default ~67–78
+fillSelect("height", HEIGHT_OPTIONS, 3); // default ~5'6–5'10
+fillSelect("bsl", BSL_OPTIONS, 4);       // default ~291–310
+
+["weight","height","bsl","type","age"].forEach(id => {
+  document.getElementById(id).addEventListener("change", compute);
+});
+
+compute();
+</script>
+</body>
+</html>
