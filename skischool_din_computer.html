@@ -19,80 +19,100 @@
     .warn { color: #8a4b00; background: #fff6e5; border: 1px solid #ffd08a; padding: 10px; border-radius: 10px; margin-top: 12px; }
     .footer { margin-top: 22px; color:#666; font-size: 13px; }
     code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+  
+    @media (max-width: 640px) {
+      body { margin: 14px; }
+      .grid { grid-template-columns: 1fr; }
+      .result { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
-  <h1>DIN Calculator</h1>
-  <p class="sub">July 2024 Look table and SRS 2020/21 Binding Adjustment cheat sheet</p>
+<h1>DIN Calculator</h1>
+<p class="sub">July 2024 Look table and SRS 2020/21 Binding Adjustment cheat sheet</p>
 
-  <div class="card">
+<div class="card">
     <div class="grid">
-      <div>
-        <label for="weight">Weight (lb)</label>
-        <select id="weight"></select>
-      </div>
+        <div>
+            <label for="weight">Weight (lb)</label>
+            <select id="weight"></select>
+        </div>
 
-      <div>
-        <label for="height">Height (ft/in)</label>
-        <select id="height"></select>
-      </div>
+        <div>
+            <label for="height">Height (ft/in)</label>
+            <select id="height"></select>
+        </div>
 
-      <div>
-        <label for="bsl">Boot Sole Length (mm)</label>
-        <select id="bsl"></select>
-      </div>
+        <div>
+            <label for="bsl">Boot Sole Length (mm)</label>
+            <select id="bsl"></select>
+        </div>
 
-      <div>
-        <label for="type">Skier Type (Release Preference)</label>
-        <select id="type">
-          <option value="" selected>— Select skier type —</option>
-          <option value="-I">Type -I (injured)</option>
-          <option value="I">Type I (cautious / slow)</option>
-          <option value="II">Type II (average)</option>
-          <option value="III">Type III (fast / aggressive)</option>
-        </select>
-      </div>
+        <div>
+            <label for="type">Skier Type (Release Preference)</label>
+            <select id="type">
+                <option value="" selected>— Select skier type —</option>
+                <option value="-I">Type -I (injured)</option>
+                <option value="I">Type I (cautious / slow)</option>
+                <option value="II">Type II (average)</option>
+                <option value="III">Type III (fast / aggressive)</option>
+            </select>
+        </div>
 
-      <div>
-        <label for="age">Age Group</label>
-        <select id="age">
-          <option value="" selected>— Select age group —</option>
-          <option value="u9">9 and under</option>
-          <option value="10_49">10–49</option>
-          <option value="50p">50 and over</option>
-        </select>
+        <div>
+            <label for="age">Age Group</label>
+            <select id="age">
+                <option value="" selected>— Select age group —</option>
+                <option value="u9">9 and under</option>
+                <option value="10_49">10–49</option>
+                <option value="50p">50 and over</option>
+            </select>
+        </div>
+
+        <div>
+            <label>&nbsp;</label>
+            <button id="resetBtn" type="button"
+                style="width:100%; padding:10px; font-size:16px; border-radius:10px; border:1px solid #ccc; background:#f7f7f7; cursor:pointer;">Reset</button>
+        </div>
+
+
+        <div class="result">
             <div>
-        <label>&nbsp;</label>
-        <button id="resetBtn" type="button" style="width:100%; padding:10px; font-size:16px; border-radius:10px; border:1px solid #ccc; background:#f7f7f7; cursor:pointer;">Reset</button>
-      </div>
+                <div class="muted">Final Skier Code</div>
+                <div class="big" id="finalCode">—</div>
+                <div class="muted">From weight/height, then Type, then Age adjustment</div>
+            </div>
+            <div>
+                <div class="muted">DIN (Indicator Setting)</div>
+                <div class="big" id="din">—</div>
+                <div class="muted" id="dinNote"></div>
+            </div>
+        </div>
+
+        <div id="warning" class="warn" style="display:none;"></div>
+
+        <div class="footer">
+            Notes:
+            <ul>
+                <li>If weight-code and height-code differ, this uses the one “closest to the top of the chart” (more
+                    conservative).</li>
+                <li>Type II moves down 1, Type III down 2; if <code>&lt;48 lb</code> then max down is 1.</li>
+                <li>Age ≤9 or ≥50 moves up 1 after Type adjustment.</li>
+                <li>If the computed DIN cell is blank, it will tell you.</li>
+            </ul>
+        </div>
     </div>
-
-    <div class="result">
-      <div>
-        <div class="muted">Final Skier Code</div>
-        <div class="big" id="finalCode">—</div>
-        <div class="muted">From weight/height, then Type, then Age adjustment</div>
-      </div>
-      <div>
-        <div class="muted">DIN (Indicator Setting)</div>
-        <div class="big" id="din">—</div>
-        <div class="muted" id="dinNote"></div>
-      </div>
-    </div>
-
-    <div id="warning" class="warn" style="display:none;"></div>
-
-    <div class="footer">
-      Notes:
-      <ul>
-        <li>If weight-code and height-code differ, this uses the one “closest to the top of the chart” (more conservative).</li>
-        <li>Type II moves down 1, Type III down 2; if <code>&lt;48 lb</code> then max down is 1.</li>
-        <li>Age ≤9 or ≥50 moves up 1 after Type adjustment.</li>
-        <li>If the computed DIN cell is blank, it will tell you.</li>
-      </ul>
-    </div>
-  </div>
-
+</div>
+<h2>Important Notice</h2>
+This calculator is an <b>informational aid only</b> and is not a substitute for proper training, certification, or supervision.<br>
+DIN settings must always be determined in accordance with the <b>current binding manufacturer’s documentation</b>, applicable standards, and your resort or shop’s policies.<br>
+The user is responsible for verifying all inputs and results. <b>Improper binding adjustment can result in serious injury or death.</b><br>
+If any result is unclear or falls outside normal chart values, consult a supervisor or certified technician before proceeding.<br>
+<h3>Legal Disclaimer</h3>
+This software is provided “as is” with no warranties of any kind. It does not provide professional advice and does not replace manufacturer documentation, certification requirements, or workplace procedures.<br>
+The author assumes no responsibility for injuries, damages, or losses resulting from the use or misuse of this tool.<br>
+Binding adjustment decisions must be made by trained personnel in accordance with applicable standards and manufacturer specifications.<br>
 <script>
 /**
  * ===== DATA (from photo of the 2024 chart) =====
