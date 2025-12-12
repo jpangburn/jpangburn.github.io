@@ -45,7 +45,9 @@
       <div>
         <label for="type">Skier Type (Release Preference)</label>
         <select id="type">
-          <option value="I" selected>Type I (cautious / slow)</option>
+          <option value="" selected>— Select skier type —</option>
+          <option value="-I">Type -I (injured)</option>
+          <option value="I">Type I (cautious / slow)</option>
           <option value="II">Type II (average)</option>
           <option value="III">Type III (fast / aggressive)</option>
         </select>
@@ -54,10 +56,14 @@
       <div>
         <label for="age">Age Group</label>
         <select id="age">
+          <option value="" selected>— Select age group —</option>
           <option value="u9">9 and under</option>
-          <option value="10_49" selected>10–49</option>
+          <option value="10_49">10–49</option>
           <option value="50p">50 and over</option>
         </select>
+            <div>
+        <label>&nbsp;</label>
+        <button id="resetBtn" type="button" style="width:100%; padding:10px; font-size:16px; border-radius:10px; border:1px solid #ccc; background:#f7f7f7; cursor:pointer;">Reset</button>
       </div>
     </div>
 
@@ -183,11 +189,21 @@ function findDIN(code, col) {
 }
 
 function compute() {
-  const weightIdx = parseInt(document.getElementById("weight").value, 10);
-  const heightIdx = parseInt(document.getElementById("height").value, 10);
-  const bslCol = parseInt(document.getElementById("bsl").value, 10);
+  const weightVal = document.getElementById("weight").value;
+  const heightVal = document.getElementById("height").value;
+  const bslVal = document.getElementById("bsl").value;
   const skierType = document.getElementById("type").value;
   const age = document.getElementById("age").value;
+
+  // Don't compute until everything is explicitly selected.
+  if (weightVal === "" || heightVal === "" || bslVal === "" || skierType === "" || age === "") {
+    clearOutput();
+    return;
+  }
+
+  const weightIdx = parseInt(weightVal, 10);
+  const heightIdx = parseInt(heightVal, 10);
+  const bslCol = parseInt(bslVal, 10);
 
   const weight = WEIGHT_OPTIONS[weightIdx];
   const height = HEIGHT_OPTIONS[heightIdx];
@@ -199,6 +215,8 @@ function compute() {
   let typeDelta = 0;
   if (skierType === "II") typeDelta = +1;
   if (skierType === "III") typeDelta = +2;
+  // for injured skiers, move up one instead
+  if (skierType === "-I") typeDelta = -1;
 
   // Special rule: if skiers < 48 lb, move down one row maximum
   if (weight.lt48 && typeDelta > 1) typeDelta = 1;
@@ -237,27 +255,59 @@ function compute() {
 /**
  * ===== INIT UI =====
  */
-function fillSelect(id, options, defaultIdx = 0) {
+function clearOutput() {
+  document.getElementById("finalCode").textContent = "—";
+  document.getElementById("din").textContent = "—";
+  document.getElementById("dinNote").textContent = "";
+  const warning = document.getElementById("warning");
+  warning.style.display = "none";
+  warning.textContent = "";
+}
+
+// Fill a <select> with a blank placeholder + options.
+// Defaults to blank (forces explicit selection).
+function fillSelect(id, options, placeholderText = "— Select —") {
   const sel = document.getElementById(id);
   sel.innerHTML = "";
+
+  const ph = document.createElement("option");
+  ph.value = "";
+  ph.textContent = placeholderText;
+  ph.selected = true;
+  sel.appendChild(ph);
+
   options.forEach((o, idx) => {
     const opt = document.createElement("option");
     opt.value = idx;
     opt.textContent = o.label;
     sel.appendChild(opt);
   });
-  sel.value = defaultIdx;
+
+  sel.value = "";
 }
 
-fillSelect("weight", WEIGHT_OPTIONS, 6); // default ~67–78
-fillSelect("height", HEIGHT_OPTIONS, 3); // default ~5'6–5'10
-fillSelect("bsl", BSL_OPTIONS, 4);       // default ~291–310
+function resetForm() {
+  document.getElementById("weight").value = "";
+  document.getElementById("height").value = "";
+  document.getElementById("bsl").value = "";
+  document.getElementById("type").value = "";
+  document.getElementById("age").value = "";
+  clearOutput();
+}
 
+fillSelect("weight", WEIGHT_OPTIONS, "— Select weight range —");
+fillSelect("height", HEIGHT_OPTIONS, "— Select height range —");
+fillSelect("bsl", BSL_OPTIONS, "— Select BSL range —");
+
+// If user changes anything, attempt compute (it will no-op until everything is set)
 ["weight","height","bsl","type","age"].forEach(id => {
   document.getElementById(id).addEventListener("change", compute);
 });
 
-compute();
+document.getElementById("resetBtn").addEventListener("click", resetForm);
+
+// Start blank.
+resetForm();
 </script>
 </body>
 </html>
