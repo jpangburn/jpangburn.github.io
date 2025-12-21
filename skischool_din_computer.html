@@ -57,9 +57,9 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
         <div>
             <label for="type">Skier Type (Release Preference)</label>
             <select id="type">
-                <option value="" selected>— Select skier type —</option>
+                <option value="">— Select skier type —</option>
                 <option value="-I">Type -I (injured)</option>
-                <option value="I">Type I (cautious / slow)</option>
+                <option value="I" selected>Type I (cautious / slow)</option>
                 <option value="II">Type II (average)</option>
                 <option value="III">Type III (fast / aggressive)</option>
             </select>
@@ -315,7 +315,7 @@ function resetForm() {
   document.getElementById("weight").value = "";
   document.getElementById("height").value = "";
   document.getElementById("bsl").value = "";
-  document.getElementById("type").value = "";
+  document.getElementById("type").value = "I";
   document.getElementById("age").value = "";
   clearOutput();
 }
