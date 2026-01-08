@@ -1,6 +1,6 @@
 ---
 layout: blankpage
-title: DIN Calculator (July 2024 Look handout)
+title: DIN Calculator (September 2025 Look handout)
 permalink: /srsdincalculator/
 note: This file is unlinked on the web site as it's just for sharing with SRS staff
 ---
@@ -8,7 +8,7 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DIN Calculator (July 2024 Look handout)</title>
+  <title>DIN Calculator (September 2025 Look handout)</title>
   <style>
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; max-width: 900px; }
     h1 { margin: 0 0 8px; }
@@ -35,7 +35,7 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
 </head>
 <body>
 <h1>DIN Calculator</h1>
-<p class="sub">July 2024 Look table and SRS 2020/21 Binding Adjustment cheat sheet</p>
+<p class="sub">September 2025 Look table and SRS 2025/26 Binding Adjustment cheat sheet</p>
 
 <div class="card">
     <div class="grid">
@@ -104,7 +104,7 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
                     conservative).</li>
                 <li>Type II moves down 1, Type III down 2; if <code>&lt;48 lb</code> then max down is 1.</li>
                 <li>Age ≤9 or ≥50 moves up 1 after Type adjustment.</li>
-                <li>If the computed DIN cell is blank, it will tell you.</li>
+                <li>If the exact DIN cell is blank, it moves left/right to the nearest value in that row.</li>
             </ul>
         </div>
     </div>
@@ -128,19 +128,19 @@ const CODES = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"];
 
 // Weight ranges -> initial code (Step 1 weight)
 const WEIGHT_OPTIONS = [
-  { label: "22–29", code: "A", lt48: true },
-  { label: "30–38", code: "B", lt48: true },
-  { label: "39–47", code: "C", lt48: true },
-  { label: "48–56", code: "D", lt48: false },
-  { label: "57–66", code: "E", lt48: false },
-  { label: "67–78", code: "F", lt48: false },
-  { label: "79–91", code: "G", lt48: false },
-  { label: "92–107", code: "H", lt48: false },
-  { label: "108–125", code: "I", lt48: false },
-  { label: "126–147", code: "J", lt48: false },
-  { label: "148–174", code: "K", lt48: false },
-  { label: "175–209", code: "L", lt48: false },
-  { label: "≥ 210", code: "M", lt48: false }
+  { label: "22–29", code: "A", lt48: true, lt39: true, lt30: true },
+  { label: "30–38", code: "B", lt48: true, lt39: true, lt30: false },
+  { label: "39–47", code: "C", lt48: true, lt39: false, lt30: false },
+  { label: "48–56", code: "D", lt48: false, lt39: false, lt30: false },
+  { label: "57–66", code: "E", lt48: false, lt39: false, lt30: false },
+  { label: "67–78", code: "F", lt48: false, lt39: false, lt30: false },
+  { label: "79–91", code: "G", lt48: false, lt39: false, lt30: false },
+  { label: "92–107", code: "H", lt48: false, lt39: false, lt30: false },
+  { label: "108–125", code: "I", lt48: false, lt39: false, lt30: false },
+  { label: "126–147", code: "J", lt48: false, lt39: false, lt30: false },
+  { label: "148–174", code: "K", lt48: false, lt39: false, lt30: false },
+  { label: "175–209", code: "L", lt48: false, lt39: false, lt30: false },
+  { label: "≥ 210", code: "M", lt48: false, lt39: false, lt30: false }
 ];
 
 // Height ranges -> initial code (Step 1 height)
@@ -204,13 +204,20 @@ function shiftCode(code, delta) {
   return CODES[j];
 }
 
-// Find the DIN given code and col
-function findDIN(code, col) {
+// Find nearest non-null in a row, starting at col, searching outward
+function nearestDIN(code, col) {
   const row = DIN[code];
-  if (!row) return null;
+  if (!row) return { value: null, usedCol: null };
 
-  if (row[col] != null) return row[col];
-  else return null;
+  if (row[col] != null) return { value: row[col], usedCol: col };
+
+  for (let dist = 1; dist < row.length; dist++) {
+    const left = col - dist;
+    const right = col + dist;
+    if (left >= 0 && row[left] != null) return { value: row[left], usedCol: left };
+    if (right < row.length && row[right] != null) return { value: row[right], usedCol: right };
+  }
+  return { value: null, usedCol: null };
 }
 
 function compute() {
@@ -243,19 +250,23 @@ function compute() {
   // for injured skiers, move up one instead
   if (skierType === "-I") typeDelta = -1;
 
-  // Special rule: if skiers < 48 lb, move down one row maximum
+  // chart rule "Note 2: for skiers 38lbs and under, Skier designated (-1) is inappropriate" (we use lt39 for less than 39)
+  if (weight.lt39 && typeDelta == -1) typeDelta = 0;
+
+  // chart rule on left side: if skiers < 48 lb, move down one row maximum
   if (weight.lt48 && typeDelta > 1) typeDelta = 1;
 
   let codeAfterType = shiftCode(baseCode, typeDelta);
 
   // Step 3: age adjustment (<=9 or >=50 => move up one row)
+  // except in the case of "Note 1" in the chart "Note 1: for skiers 29lbs and under, no further correction is appropriate" (we use lt30 for less than 30)
   let ageDelta = 0;
-  if (age === "u9" || age === "50p") ageDelta = -1;
+  if ((age === "u9" || age === "50p") && !weight.lt30) ageDelta = -1;
 
   const finalCode = shiftCode(codeAfterType, ageDelta);
 
-  // Step 4: DIN lookup
-  const dinValue = findDIN(finalCode, bslCol);
+  // Step 4: DIN lookup (+ “nearest value” rule)
+  const { value: dinValue, usedCol } = nearestDIN(finalCode, bslCol);
 
   // UI
   document.getElementById("finalCode").textContent = finalCode;
@@ -269,11 +280,16 @@ function compute() {
   if (dinValue == null) {
     dinNote.textContent = `No DIN value found for skier code '${finalCode}' and BSL column '${bslCol + 1}'.`;
     warning.style.display = "block";
-    warning.textContent = "This combination lands in a blank area of the chart, ask supervisor what to do.";
+    warning.textContent = "This combination lands in a blank area of the chart and no nearest value was found.";
     return;
   }
 
-  dinNote.textContent = `BSL column ${bslCol + 1} (${BSL_OPTIONS[bslCol].label}).`;
+  if (usedCol !== bslCol) {
+    dinNote.textContent =
+      `Cell was blank for that BSL column; used nearest value from BSL column ${usedCol + 1} (${BSL_OPTIONS[usedCol].label}).`;
+  } else {
+    dinNote.textContent = `BSL column ${bslCol + 1} (${BSL_OPTIONS[bslCol].label}).`;
+  }
   
 }
 
