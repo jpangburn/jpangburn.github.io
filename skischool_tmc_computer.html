@@ -319,7 +319,6 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
 
         <div class="button-row">
           <button class="primary" id="runBtn">Run Simulation</button>
-          <button class="secondary" id="rerollBtn">Reroll Season</button>
         </div>
         <button class="tertiary" id="resetBtn">Reset Defaults</button>
 
@@ -411,7 +410,6 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
       yearsBetween: document.getElementById('yearsBetween'),
       simSeasons: document.getElementById('simSeasons'),
       runBtn: document.getElementById('runBtn'),
-      rerollBtn: document.getElementById('rerollBtn'),
       resetBtn: document.getElementById('resetBtn'),
       daysStat: document.getElementById('daysStat'),
       dailyProbStat: document.getElementById('dailyProbStat'),
@@ -423,7 +421,6 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
       aggregateText: document.getElementById('aggregateText')
     };
 
-    let lastRepresentativeSeason = null;
 
     function clampNumber(n, fallback, min = 0.000001) {
       if (!Number.isFinite(n) || n < min) return fallback;
@@ -601,18 +598,14 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
       `;
     }
 
-    function runSimulation(useFreshRepresentative = true) {
+    function runSimulation() {
       const params = readInputs();
       const d = derived(params);
       updateStats(params, d);
 
       const workDaysInt = Math.max(1, Math.round(d.workDaysPerSeason));
-      const repSeason = useFreshRepresentative || !lastRepresentativeSeason
-        ? simulateSeason(params, d.dailyProb, workDaysInt)
-        : lastRepresentativeSeason;
-
+      const repSeason = simulateSeason(params, d.dailyProb, workDaysInt);
       const agg = simulateManySeasons(params, d.dailyProb, workDaysInt);
-      lastRepresentativeSeason = repSeason;
 
       renderChart(repSeason.counts);
       renderNarrative(params, d, repSeason, agg);
@@ -624,26 +617,22 @@ note: This file is unlinked on the web site as it's just for sharing with SRS st
       el.weeksPerSeason.value = defaults.weeksPerSeason;
       el.yearsBetween.value = defaults.yearsBetween;
       el.simSeasons.value = defaults.simSeasons;
-      lastRepresentativeSeason = null;
-      runSimulation(true);
+      runSimulation();
     }
 
     el.runBtn.addEventListener('click', () => {
-      lastRepresentativeSeason = null;
-      runSimulation(true);
+      runSimulation();
     });
-
-    el.rerollBtn.addEventListener('click', () => runSimulation(true));
+    
     el.resetBtn.addEventListener('click', resetDefaults);
 
     [el.instructors, el.daysPerWeek, el.weeksPerSeason, el.yearsBetween, el.simSeasons].forEach(node => {
       node.addEventListener('change', () => {
-        lastRepresentativeSeason = null;
-        runSimulation(true);
+        runSimulation();
       });
     });
 
-    runSimulation(true);
+    runSimulation();
   </script>
 </body>
 </html>
