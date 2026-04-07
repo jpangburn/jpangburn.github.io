@@ -1,0 +1,649 @@
+---
+layout: blankpage
+title: TMC Safety Simulation
+permalink: /tmcsimulation/
+note: This file is unlinked on the web site as it's just for sharing with SRS staff
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMC Safety Simulation</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe4ee;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --good: #065f46;
+      --warn: #92400e;
+      --bad: #991b1b;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    h1, h2, h3 { margin: 0 0 12px; }
+    p { margin: 0 0 12px; }
+
+    .hero {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.7rem, 2vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 1000px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .controls {
+      position: sticky;
+      top: 20px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hint {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #c9d5e3;
+      border-radius: 12px;
+      font-size: 0.98rem;
+      background: #fff;
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.05s ease, opacity 0.2s ease;
+    }
+
+    button:hover { opacity: 0.95; }
+    button:active { transform: translateY(1px); }
+
+    .primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .secondary {
+      background: #eef2f7;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .tertiary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, #fff, #f8fbff);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .stat .k {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stat .v {
+      font-size: 1.55rem;
+      font-weight: 800;
+    }
+
+    .section + .section { margin-top: 20px; }
+
+    .chart-card {
+      padding-bottom: 10px;
+    }
+
+    #chartWrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      min-height: 420px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 10px 0 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .note-good { color: var(--good); font-weight: 700; }
+    .note-warn { color: var(--warn); font-weight: 700; }
+    .note-bad { color: var(--bad); font-weight: 700; }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: 1fr; }
+      .controls { position: static; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 14px; }
+      .stats { grid-template-columns: 1fr; }
+      .button-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Temporary Missing Child (TMC) Safety Simulation</h1>
+      <p>
+        This page illustrates why temporary child-separation incidents should be treated as a safety-response problem,
+        not automatically as proof of instructor negligence. Even if the average instructor experiences a TMC only rarely,
+        random variation alone can cause a few instructors to have multiple incidents in a single season.
+      </p>
+      <div class="callout">
+        <strong>Core safety message:</strong> the safest system is one that encourages instructors to report a TMC immediately,
+        so supervisors and patrol can respond fast. A punitive culture can discourage fast reporting.
+      </div>
+    </section>
+
+    <div class="grid">
+      <aside class="card controls">
+        <h2>Inputs</h2>
+
+        <div class="field">
+          <label for="instructors">Number of instructors</label>
+          <input id="instructors" type="number" min="1" step="1" value="120" />
+          <div class="hint">Total instructors included in the simulation.</div>
+        </div>
+
+        <div class="field">
+          <label for="daysPerWeek">Average working days per week</label>
+          <input id="daysPerWeek" type="number" min="0.1" step="0.1" value="4" />
+          <div class="hint">Example: a typical part-time instructor might work 4 days/week.</div>
+        </div>
+
+        <div class="field">
+          <label for="weeksPerSeason">Weeks worked per season</label>
+          <input id="weeksPerSeason" type="number" min="1" step="1" value="14" />
+          <div class="hint">Example: 14 weeks in a main teaching season.</div>
+        </div>
+
+        <div class="field">
+          <label for="yearsBetween">Average years between TMC incidents per instructor</label>
+          <input id="yearsBetween" type="number" min="0.1" step="0.1" value="5" />
+          <div class="hint">If set to 5, that means the average instructor has 1 TMC every 5 seasons.</div>
+        </div>
+
+        <div class="field">
+          <label for="simSeasons">Number of seasons to aggregate</label>
+          <select id="simSeasons">
+            <option value="1">1 season</option>
+            <option value="10">10 seasons</option>
+            <option value="100">100 seasons</option>
+            <option value="1000" selected>1000 seasons</option>
+          </select>
+          <div class="hint">Used for the summary probabilities below. The chart still shows one representative season.</div>
+        </div>
+
+        <div class="button-row">
+          <button class="primary" id="runBtn">Run Simulation</button>
+          <button class="secondary" id="rerollBtn">Reroll Season</button>
+        </div>
+        <button class="tertiary" id="resetBtn">Reset Defaults</button>
+
+        <div class="footer">
+          This model assumes equal exposure for all instructors and independent random risk. It is intentionally simplified,
+          but it is enough to demonstrate why raw incident counts can be misleading.
+        </div>
+      </aside>
+
+      <main>
+        <section class="section">
+          <div class="stats">
+            <div class="stat">
+              <div class="k">Work days / instructor / season</div>
+              <div class="v" id="daysStat">56</div>
+            </div>
+            <div class="stat">
+              <div class="k">Daily TMC probability</div>
+              <div class="v" id="dailyProbStat">0.357%</div>
+            </div>
+            <div class="stat">
+              <div class="k">Expected TMCs / instructor / season</div>
+              <div class="v" id="perInstructorStat">0.20</div>
+            </div>
+            <div class="stat">
+              <div class="k">Expected resort-wide TMCs / season</div>
+              <div class="v" id="totalExpectedStat">24.0</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card chart-card section">
+          <h2>Representative season: TMC counts by instructor</h2>
+          <p class="small">
+            Bars are sorted from lowest to highest count. Most instructors will usually have zero incidents, some will have one,
+            and a small number may have several just due to chance.
+          </p>
+          <div class="legend">
+            <span><span class="dot" style="background:#93c5fd"></span>0 incidents</span>
+            <span><span class="dot" style="background:#60a5fa"></span>1 incident</span>
+            <span><span class="dot" style="background:#2563eb"></span>2 incidents</span>
+            <span><span class="dot" style="background:#f59e0b"></span>3 incidents</span>
+            <span><span class="dot" style="background:#dc2626"></span>4+ incidents</span>
+          </div>
+          <div id="chartWrap">
+            <svg id="chart" viewBox="0 0 1000 440" preserveAspectRatio="none"></svg>
+          </div>
+          <div id="chartCaption" class="small" style="margin-top:10px;"></div>
+        </section>
+
+        <section class="analysis-grid section">
+          <div class="card">
+            <h2>What the simulation shows</h2>
+            <div id="summaryText"></div>
+          </div>
+
+          <div class="card">
+            <h2>Aggregated over many seasons</h2>
+            <div id="aggregateText"></div>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Interpretation</h2>
+          <ul>
+            <li>A TMC should trigger an immediate coordinated response, not hesitation.</li>
+            <li>If staff fear punishment merely for reporting, they may delay escalation while trying to solve it alone.</li>
+            <li>Counts alone are not enough. Exposure differs by age group, lesson type, terrain, staffing, and operational chaos.</li>
+            <li>The right management question is not "Who do we punish?" but "How do we improve prevention, fast reporting, and recovery?"</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const defaults = {
+      instructors: 120,
+      daysPerWeek: 4,
+      weeksPerSeason: 14,
+      yearsBetween: 5,
+      simSeasons: 1000
+    };
+
+    const el = {
+      instructors: document.getElementById('instructors'),
+      daysPerWeek: document.getElementById('daysPerWeek'),
+      weeksPerSeason: document.getElementById('weeksPerSeason'),
+      yearsBetween: document.getElementById('yearsBetween'),
+      simSeasons: document.getElementById('simSeasons'),
+      runBtn: document.getElementById('runBtn'),
+      rerollBtn: document.getElementById('rerollBtn'),
+      resetBtn: document.getElementById('resetBtn'),
+      daysStat: document.getElementById('daysStat'),
+      dailyProbStat: document.getElementById('dailyProbStat'),
+      perInstructorStat: document.getElementById('perInstructorStat'),
+      totalExpectedStat: document.getElementById('totalExpectedStat'),
+      chart: document.getElementById('chart'),
+      chartCaption: document.getElementById('chartCaption'),
+      summaryText: document.getElementById('summaryText'),
+      aggregateText: document.getElementById('aggregateText')
+    };
+
+    let lastRepresentativeSeason = null;
+
+    function clampNumber(n, fallback, min = 0.000001) {
+      if (!Number.isFinite(n) || n < min) return fallback;
+      return n;
+    }
+
+    function readInputs() {
+      const instructors = Math.max(1, Math.round(Number(el.instructors.value) || defaults.instructors));
+      const daysPerWeek = clampNumber(Number(el.daysPerWeek.value), defaults.daysPerWeek, 0.1);
+      const weeksPerSeason = Math.max(1, Math.round(Number(el.weeksPerSeason.value) || defaults.weeksPerSeason));
+      const yearsBetween = clampNumber(Number(el.yearsBetween.value), defaults.yearsBetween, 0.1);
+      const simSeasons = Math.max(1, Math.round(Number(el.simSeasons.value) || defaults.simSeasons));
+
+      return { instructors, daysPerWeek, weeksPerSeason, yearsBetween, simSeasons };
+    }
+
+    function derived(params) {
+      const workDaysPerSeason = params.daysPerWeek * params.weeksPerSeason;
+      const perInstructorPerSeason = 1 / params.yearsBetween;
+      const dailyProb = perInstructorPerSeason / workDaysPerSeason;
+      const resortExpected = perInstructorPerSeason * params.instructors;
+      return { workDaysPerSeason, perInstructorPerSeason, dailyProb, resortExpected };
+    }
+
+    function simulateSeason(params, dailyProb, workDaysPerSeason) {
+      const counts = [];
+      let total = 0;
+
+      for (let i = 0; i < params.instructors; i++) {
+        let count = 0;
+        for (let d = 0; d < workDaysPerSeason; d++) {
+          if (Math.random() < dailyProb) count++;
+        }
+        counts.push(count);
+        total += count;
+      }
+
+      counts.sort((a, b) => a - b);
+      return { counts, total, max: counts[counts.length - 1] || 0 };
+    }
+
+    function simulateManySeasons(params, dailyProb, workDaysPerSeason) {
+      let maxCounts = [];
+      let seasonsWith3 = 0;
+      let seasonsWith4 = 0;
+      let seasonsWith5 = 0;
+      let totalIncidents = 0;
+      let totalZeroInstructors = 0;
+      let totalOnePlusInstructors = 0;
+
+      for (let s = 0; s < params.simSeasons; s++) {
+        const season = simulateSeason(params, dailyProb, workDaysPerSeason);
+        maxCounts.push(season.max);
+        totalIncidents += season.total;
+
+        const zeroCount = season.counts.filter(v => v === 0).length;
+        totalZeroInstructors += zeroCount;
+        totalOnePlusInstructors += params.instructors - zeroCount;
+
+        if (season.max >= 3) seasonsWith3++;
+        if (season.max >= 4) seasonsWith4++;
+        if (season.max >= 5) seasonsWith5++;
+      }
+
+      maxCounts.sort((a, b) => a - b);
+      const avgMax = maxCounts.reduce((a, b) => a + b, 0) / maxCounts.length;
+      const medianMax = maxCounts[Math.floor(maxCounts.length / 2)] || 0;
+
+      return {
+        avgMax,
+        medianMax,
+        p3: seasonsWith3 / params.simSeasons,
+        p4: seasonsWith4 / params.simSeasons,
+        p5: seasonsWith5 / params.simSeasons,
+        avgTotalIncidents: totalIncidents / params.simSeasons,
+        avgZeroPct: totalZeroInstructors / (params.simSeasons * params.instructors),
+        avgOnePlusPct: totalOnePlusInstructors / (params.simSeasons * params.instructors)
+      };
+    }
+
+    function barColor(v) {
+      if (v === 0) return '#93c5fd';
+      if (v === 1) return '#60a5fa';
+      if (v === 2) return '#2563eb';
+      if (v === 3) return '#f59e0b';
+      return '#dc2626';
+    }
+
+    function renderChart(counts) {
+      const svg = el.chart;
+      const width = 1000;
+      const height = 440;
+      const m = { top: 15, right: 12, bottom: 48, left: 40 };
+      const plotW = width - m.left - m.right;
+      const plotH = height - m.top - m.bottom;
+      const maxVal = Math.max(1, ...counts);
+      const n = counts.length;
+      const barW = Math.max(2, plotW / n - 1);
+
+      let out = '';
+
+      out += `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"/>`;
+
+      for (let y = 0; y <= maxVal; y++) {
+        const yy = m.top + plotH - (y / maxVal) * plotH;
+        out += `<line x1="${m.left}" y1="${yy}" x2="${width - m.right}" y2="${yy}" stroke="#e5edf6" stroke-width="1"/>`;
+        out += `<text x="${m.left - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="#6b7280">${y}</text>`;
+      }
+
+      counts.forEach((v, i) => {
+        const x = m.left + i * (plotW / n);
+        const h = (v / maxVal) * plotH;
+        const y = m.top + plotH - h;
+        out += `<rect x="${x}" y="${y}" width="${barW}" height="${Math.max(0.5, h)}" fill="${barColor(v)}" rx="1"/>`;
+      });
+
+      out += `<line x1="${m.left}" y1="${m.top + plotH}" x2="${width - m.right}" y2="${m.top + plotH}" stroke="#94a3b8" stroke-width="1.2"/>`;
+      out += `<line x1="${m.left}" y1="${m.top}" x2="${m.left}" y2="${m.top + plotH}" stroke="#94a3b8" stroke-width="1.2"/>`;
+      out += `<text x="${width / 2}" y="${height - 10}" text-anchor="middle" font-size="12" fill="#6b7280">Instructors sorted by TMC count</text>`;
+      out += `<text x="18" y="${height / 2}" text-anchor="middle" font-size="12" fill="#6b7280" transform="rotate(-90 18 ${height / 2})">TMC incidents in season</text>`;
+
+      svg.innerHTML = out;
+    }
+
+    function pct(v, digits = 1) {
+      return `${(v * 100).toFixed(digits)}%`;
+    }
+
+    function updateStats(params, d) {
+      el.daysStat.textContent = d.workDaysPerSeason.toFixed(1).replace(/\.0$/, '');
+      el.dailyProbStat.textContent = pct(d.dailyProb, 3);
+      el.perInstructorStat.textContent = d.perInstructorPerSeason.toFixed(2);
+      el.totalExpectedStat.textContent = d.resortExpected.toFixed(1);
+    }
+
+    function renderNarrative(params, d, rep, agg) {
+      const zeroCount = rep.counts.filter(v => v === 0).length;
+      const oneCount = rep.counts.filter(v => v === 1).length;
+      const multiCount = rep.counts.filter(v => v >= 2).length;
+      const highCount = rep.counts.filter(v => v >= 3).length;
+
+      el.chartCaption.textContent = `In this representative season, the resort had ${rep.total} total TMC incidents. The highest count for any one instructor was ${rep.max}.`;
+
+      const summaryTone = rep.max >= 4
+        ? `<p><span class="note-bad">This season produced an instructor who looks unusually bad on raw counts.</span> That can happen purely through random variation, even when everyone shares the same underlying risk.</p>`
+        : rep.max >= 3
+          ? `<p><span class="note-warn">This season produced an instructor with 3+ incidents.</span> That is exactly the kind of outcome people often over-interpret as proof of negligence, even though it can arise by chance.</p>`
+          : `<p><span class="note-good">This season looks uneventful at the high end.</span> But that does not mean future seasons will. Rare events cluster unevenly.</p>`;
+
+      el.summaryText.innerHTML = `
+        <p>Under these assumptions, each instructor works <strong>${d.workDaysPerSeason.toFixed(1).replace(/\.0$/, '')} days</strong> per season and has an average of <strong>${d.perInstructorPerSeason.toFixed(2)}</strong> TMC incidents per season.</p>
+        <p>In this representative season:</p>
+        <ul>
+          <li><strong>${zeroCount}</strong> instructors had zero incidents.</li>
+          <li><strong>${oneCount}</strong> instructors had exactly one incident.</li>
+          <li><strong>${multiCount}</strong> instructors had two or more incidents.</li>
+          <li><strong>${highCount}</strong> instructors had three or more incidents.</li>
+        </ul>
+        ${summaryTone}
+      `;
+
+      el.aggregateText.innerHTML = `
+        <p>Across <strong>${params.simSeasons.toLocaleString()}</strong> simulated seasons:</p>
+        <ul>
+          <li>Average resort-wide TMC total: <strong>${agg.avgTotalIncidents.toFixed(1)}</strong> per season.</li>
+          <li>Average highest instructor count in a season: <strong>${agg.avgMax.toFixed(2)}</strong>.</li>
+          <li>Median highest instructor count in a season: <strong>${agg.medianMax}</strong>.</li>
+          <li>Chance at least one instructor has <strong>3+</strong> incidents: <strong>${pct(agg.p3)}</strong>.</li>
+          <li>Chance at least one instructor has <strong>4+</strong> incidents: <strong>${pct(agg.p4)}</strong>.</li>
+          <li>Chance at least one instructor has <strong>5+</strong> incidents: <strong>${pct(agg.p5)}</strong>.</li>
+          <li>Average share of instructors with zero incidents: <strong>${pct(agg.avgZeroPct)}</strong>.</li>
+          <li>Average share of instructors with one or more incidents: <strong>${pct(agg.avgOnePlusPct)}</strong>.</li>
+        </ul>
+        <p class="small">These results do <em>not</em> prove every incident is unavoidable. They show that even with equal underlying risk, some instructors will look worse than others just by chance.</p>
+      `;
+    }
+
+    function runSimulation(useFreshRepresentative = true) {
+      const params = readInputs();
+      const d = derived(params);
+      updateStats(params, d);
+
+      const workDaysInt = Math.max(1, Math.round(d.workDaysPerSeason));
+      const repSeason = useFreshRepresentative || !lastRepresentativeSeason
+        ? simulateSeason(params, d.dailyProb, workDaysInt)
+        : lastRepresentativeSeason;
+
+      const agg = simulateManySeasons(params, d.dailyProb, workDaysInt);
+      lastRepresentativeSeason = repSeason;
+
+      renderChart(repSeason.counts);
+      renderNarrative(params, d, repSeason, agg);
+    }
+
+    function resetDefaults() {
+      el.instructors.value = defaults.instructors;
+      el.daysPerWeek.value = defaults.daysPerWeek;
+      el.weeksPerSeason.value = defaults.weeksPerSeason;
+      el.yearsBetween.value = defaults.yearsBetween;
+      el.simSeasons.value = defaults.simSeasons;
+      lastRepresentativeSeason = null;
+      runSimulation(true);
+    }
+
+    el.runBtn.addEventListener('click', () => {
+      lastRepresentativeSeason = null;
+      runSimulation(true);
+    });
+
+    el.rerollBtn.addEventListener('click', () => runSimulation(true));
+    el.resetBtn.addEventListener('click', resetDefaults);
+
+    [el.instructors, el.daysPerWeek, el.weeksPerSeason, el.yearsBetween, el.simSeasons].forEach(node => {
+      node.addEventListener('change', () => {
+        lastRepresentativeSeason = null;
+        runSimulation(true);
+      });
+    });
+
+    runSimulation(true);
+  </script>
+</body>
+</html>
